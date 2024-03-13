@@ -6,14 +6,12 @@ defmodule TwitterDemoWeb.TweetControllerTest do
   alias TwitterDemo.Tweets.Tweet
 
   @create_attrs %{
-    content: "some content",
-    created_at: ~U[2024-03-12 14:05:00Z]
+    content: "some content"
   }
   @update_attrs %{
-    content: "some updated content",
-    created_at: ~U[2024-03-13 14:05:00Z]
+    content: "some updated content"
   }
-  @invalid_attrs %{content: nil, created_at: nil}
+  @invalid_attrs %{content: nil}
 
   setup %{conn: conn} do
     {:ok, conn: put_req_header(conn, "accept", "application/json")}
@@ -35,8 +33,7 @@ defmodule TwitterDemoWeb.TweetControllerTest do
 
       assert %{
                "id" => ^id,
-               "content" => "some content",
-               "created_at" => "2024-03-12T14:05:00Z"
+               "content" => "some content"
              } = json_response(conn, 200)["data"]
     end
 
@@ -57,8 +54,7 @@ defmodule TwitterDemoWeb.TweetControllerTest do
 
       assert %{
                "id" => ^id,
-               "content" => "some updated content",
-               "created_at" => "2024-03-13T14:05:00Z"
+               "content" => "some updated content"
              } = json_response(conn, 200)["data"]
     end
 
