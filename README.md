@@ -33,9 +33,14 @@ To setup the project, run the following commands:
 mix setup
 ```
 
-**Configure the database**
+**Create the database**
 ```bash
 mix ecto.create
+```
+
+**Create the database tables**
+```bash
+mix ecto.setup
 ```
 
 **Run the server**
@@ -43,4 +48,10 @@ mix ecto.create
 mix phx.server
 ```
 
+The server should now be running on `http://localhost:4000`.
 
+to see the paths and the methods that you can use, run the following command:
+
+```bash
+mix phx.routes
+```
