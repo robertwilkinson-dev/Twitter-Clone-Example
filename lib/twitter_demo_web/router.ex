@@ -14,16 +14,18 @@ defmodule TwitterDemoWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", TwitterDemoWeb do
-    pipe_through :browser
+  # scope "/", TwitterDemoWeb do
+  #   pipe_through :browser
 
-    get "/", PageController, :home
-  end
+  #   get "/", PageController, :home
+  # end
 
   # Other scopes may use custom stacks.
-  # scope "/api", TwitterDemoWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", TwitterDemoWeb do
+    pipe_through :api
+
+    resources "/users", UserController, except: [:new, :edit]
+  end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development
   if Application.compile_env(:twitter_demo, :dev_routes) do
