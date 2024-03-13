@@ -43,6 +43,11 @@ mix ecto.create
 mix ecto.setup
 ```
 
+**Seed the database with some data**
+```bash
+mix run priv/repo/seeds.exs
+```
+
 **Run the server**
 ```bash
 mix phx.server
